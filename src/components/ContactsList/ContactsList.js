@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactsList = ({ contacts }) => (
+const ContactsList = ({ contacts, onDeleteContact }) => (
     <ul className="TodoList">
         {contacts.map(({ id, name, number}) =>(
             <li
@@ -10,6 +10,13 @@ const ContactsList = ({ contacts }) => (
                 <p className="TodoList__text">{name}</p>
                 <p className="TodoList__text">{number}</p>
                 
+                <button
+                    type="button"
+                    className="TodoList__button"
+                    onClick={() => onDeleteContact(id)}
+                >
+                    Delete
+                </button>
             </li>
         ))}
     </ul>

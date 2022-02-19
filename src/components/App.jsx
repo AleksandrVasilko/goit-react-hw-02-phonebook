@@ -7,7 +7,12 @@ import shortid from "shortid";
 class App extends Component {
 
   state = {
-    contacts: [],
+    contacts: [
+    {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+    {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+  ],
     filter: '',
     name: '',
     number: ''
@@ -20,6 +25,8 @@ class App extends Component {
       name: name,
       number: number,
     };
+
+    
 
     this.setState(prevState => ({
       contacts: [ ...prevState.contacts, contact]
@@ -41,8 +48,14 @@ class App extends Component {
         );
     };
 
+    deleteContact = (contactId) => {
+        this.setState(prevState => ({
+            contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+        }))
+    };
+
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
     const visibleContacts = this.getVisibleTodos();
 
     return (
@@ -50,7 +63,10 @@ class App extends Component {
         <ContactForm onSubmit={this.addContact} />
         <Filter value={filter} onChange={ this.changeFilter}/>
         
-        <ContactsList contacts={ visibleContacts }/>
+        <ContactsList
+          contacts={visibleContacts}
+          onDeleteContact={this.deleteContact}
+        />
       </div>
     );
   };
