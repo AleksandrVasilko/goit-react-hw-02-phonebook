@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactsList from './ContactsList/ContactsList'
 import Filter from './Filter/Filter';
