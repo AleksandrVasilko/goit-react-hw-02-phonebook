@@ -1,0 +1,9 @@
+.title {
+  font-size: 75px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.contactField {
+  display: flex;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ContactForm from "./ContactForm/ContactForm";
-import ContactsList from './ContactsList/ContactsList'
+import ContactsList from './ContactsList/ContactsList';
+import Container from "./Container/Container";
 import Filter from './Filter/Filter';
 import shortid from "shortid";
 
@@ -59,7 +60,7 @@ class App extends Component {
     const visibleContacts = this.getVisibleTodos();
 
     return (
-      <div>
+      <Container>
         <ContactForm onSubmit={this.addContact} />
         <Filter value={filter} onChange={ this.changeFilter}/>
         
@@ -67,7 +68,7 @@ class App extends Component {
           contacts={visibleContacts}
           onDeleteContact={this.deleteContact}
         />
-      </div>
+      </Container>
     );
   };
 }
