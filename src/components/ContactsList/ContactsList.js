@@ -9,7 +9,7 @@ const ContactsList = ({ contacts, onDeleteContact }) => (
                 <li
                     key={id}
                     className={s.contactList__item}>
-                
+                    
                     <span className={s.contactList__text}>{name}: </span>
                     <span className={s.contactList__text}>{number}</span>
                 

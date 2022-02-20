@@ -19,22 +19,26 @@ class App extends Component {
     number: ''
   }
   
-  addContact = ( name, number ) => {
-    //console.log(text)
+  addContact = (name, number) => {
+
+    const { contacts } = this.state;
+		const repeatName = contacts.find(contact => {
+			return contact.name.toLowerCase() === name.toLowerCase();
+		});
+		if (repeatName) {
+			alert(`${name} is already in contacts`);
+			return;
+    }
+    
     const contact = {
       id: shortid.generate(),
       name: name,
       number: number,
     };
 
-    
-
     this.setState(prevState => ({
-      contacts: [ ...prevState.contacts, contact]
-      
+      contacts: [...prevState.contacts, contact]
     }))
-    console.log(this.state)
-    console.log(this.state.name)
   };
 
   changeFilter = event => {
